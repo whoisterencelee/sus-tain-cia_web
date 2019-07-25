@@ -1,4 +1,4 @@
-magick convert $1.svg -resize 1024x1024 logo/favicon.png
+magick convert $1.svg -resize 64x64 logo/favicon.png
 
 # https://graphicdesign.stackexchange.com/questions/77359/how-to-convert-a-square-svg-to-all-size-ico#102010
 magick convert $1.svg -resize 16x16 logo/$1_16x16.png

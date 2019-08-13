@@ -4,7 +4,7 @@ Starter for Sus-tain-cia websites, contain theme and email signup form.
 
 ## What is Sus-tain-cia?
 
-Innovative, Coordinating, Green, Open, Sharing Sustainable Platform for Everyone
+Innovative, Coordinating, Green, Open, Sharing Science Platform for Everyone
 
 创新、协调、绿色、开放、共享 适合每个人的可持续平台
 
@@ -23,6 +23,11 @@ Register an account with github
 ### Installing
 
 Clone this repository
+```
+git clone https://github.com/whoisterencelee/sus-tain-cia_web.git <name of your new repo>
+git remote set-url origin https//github.com/<username>/<repo>.git
+git remote add upstream https://github.com/whoisterencelee/sus-tain-cia_web.git
+```
 
 Goto the repository setting and set the domain
 

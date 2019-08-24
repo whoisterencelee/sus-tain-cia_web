@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
+  <script>function $(i){return document.getElementById(i)}</script>
+
   <meta name="theme-color" content="#fafafa">
 </head>
 
@@ -32,13 +34,72 @@
 		form input {background:transparent;color:grey;border:0px;margin:1em;text-align:center;}
 		</style>
 
-		<form method="POST" action="https://formspree.io/sustaincia@gmail.com">
-		<div class="hpot"><label>Open Sustainable Platform<input name="_gotcha"></label></div>
-		<label>Signup for News<br />
-		<input type="email" style="border-bottom:1px solid lightgrey;padding:0.5em;" placeholder="your@email.address" name="news subscriber" required></input>
-		</label>
+		<style>
+			.game > * {display:flex;flex-direction:column;margin:15px;align-items:center;}
+		</style>
+
+		<div class="game" style="display:flex;flex-direction:column;align-items:center;">
+			<div>World's Population <span id="world_population"></span></div>
+			<!--<div>Percentage of world using water bottle <div><span id="percentage_use_bottle"></span>%</div></div>-->
+
+			<label>How many plastic bottles do you use in a week <span>0<input type="range" id="bottles_per_week" min="0" max="50" ></input>50+</span>
+			<span id="bottles_per_week_show"></span>
+			</label> 
+			<!--<label>How many of these do you think is recycled <input type="range" id="recycle"></input></label>-->
+			<label>Where you stand in plastic bottle use compare to others <span>little<input type="range" id="use_level"></input>most</span></label> 
+
+			<div>According to wikipedia plastic bottles has been available since the 1950s</div>
+			<div>Simulated bottles produced so far <span id="bottles"></span></div>
+			<!--<div>Simulated bottles which were recycled <span id="recycled"></span></div>-->
+		</div>
+
+		<script>
+			var game = {
+				world_population : 7700000000 ,
+				water_requirement_per_person  : 2000 ,
+				bottles_per_week : 7 ,
+				start_year : 1950 ,
+				use_level : 50 ,
+				current_year : new Date().getFullYear() - 1 ,
+				}
+
+			Object.keys( game ).forEach( k =>{
+				var d = $( k )
+				if( !d ) return
+				if( d.value !== undefined ){
+					d.value = game[ k ]
+					d.addEventListener( "change" , runGame )
+				}
+				else if( d.textContent !== undefined ) d.textContent = game[ k ].toLocaleString() 
+			})
+
+			function showbottle(){ $( "bottles_per_week_show" ).textContent = $( "bottles_per_week" ).value }
+			$( "bottles_per_week").addEventListener( "change" , showbottle )
+			showbottle()
+
+			function runGame(){
+				var use_level = parseInt( $( "use_level" ).value ) || 1
+				var bottles_per_week = parseInt( $( "bottles_per_week" ).value ) || 1
+				var avg_bottles_per_week = bottles_per_week / ( use_level / 100 ) * 0.5
+				var bottles_per_week  = Math.round( game.world_population * avg_bottles_per_week )
+				var bottles_so_far = bottles_per_week * 52 * ( game.current_year - game.start_year )
+				
+				$( "bottles" ).textContent = bottles_so_far.toLocaleString()
+
+			}
+			runGame()
+		</script>
+
 		<br />
-		<input style="margin:0;" type="submit" value="Submit"></input>
+		<br />
+
+		<form method="POST" action="https://formspree.io/sustaincia@gmail.com">
+			<div class="hpot"><label>Open Participation<input name="_gotcha"></label></div>
+			<label>Signup for News<br />
+			<input type="email" style="border-bottom:1px solid lightgrey;padding:0.5em;" placeholder="your@email.address" name="news subscriber" required></input>
+			</label>
+			<br />
+			<input style="margin:0;" type="submit" value="Submit"></input>
 		</form>
 
 	</div>

@@ -30,34 +30,50 @@
 
 		<h1>Beneficial Sustainability for Everyone</h1>
 		
-		<style>.hpot {display:none;}
-		form input {background:transparent;color:grey;border:0px;margin:1em;text-align:center;}
-		</style>
-
 		<style>
-			.game > * {display:flex;flex-direction:column;margin:15px;align-items:center;}
+			.game {display:flex;flex-direction:column;align-items:center;box-shadow:4px 4px 6px 0px lightgrey;border-radius:4px;border:1px solid #ccc5ba;width:31vw;}
+			.game > * {display:flex;flex-direction:column;align-items:center;}
+			.game > label {margin:1em;}
+			.game input {width:10vw;}
 		</style>
 
-		<div class="game" style="display:flex;flex-direction:column;align-items:center;">
-			<div>World's Population <span id="world_population"></span></div>
-			<!--<div>Percentage of world using water bottle <div><span id="percentage_use_bottle"></span>%</div></div>-->
+		<p>Imagine a resource call "sumsum" which everyone needs</p>
+		<div style="display:flex;flex-direction:row;align-items:flex-start;flex-wrap:wrap;justify-content:space-evenly;">
 
-			<label>How many plastic bottles do you use in a week <span>0<input type="range" id="bottles_per_week" min="0" max="50" ></input>50+</span>
-			<span id="bottles_per_week_show"></span>
-			</label> 
-			<!--<label>How many of these do you think is recycled <input type="range" id="recycle"></input></label>-->
-			<label>Where you stand in plastic bottle use compare to others <span>little<input type="range" id="use_level"></input>most</span></label> 
+			<div class="game">
+				<div style="background:#ccc5ba;margin:0;width:100%;padding:0.25em 0;text-shadow:none;">Tragedy of the Common</div>
+				<label>how much sumsum do you take <span>none <input type="range" min="0" max="100"></input> all</span></label>
+				<label>cost of sumsum <span>free <input type="range" min="0" max="100"></input> unaffortable</span></label>
+				<div style="background:#84838E;color:white;margin:0;width:100%;padding:0.25em 0;text-shadow:none;">unsustainable</div>
+			</div>
 
-			<div>According to wikipedia plastic bottles has been available since the 1950s</div>
-			<div>Simulated bottles produced so far <span id="bottles"></span></div>
-			<!--<div>Simulated bottles which were recycled <span id="recycled"></span></div>-->
+			<div class="game">
+				<div style="background:#ccc5ba;margin:0;width:100%;padding:0.25em 0;text-shadow:none;">Power of Everyone</div>
+
+				<label>sumsum you use in a week <span>little <input type="range" id="bottles_per_week" min="1" max="20" ></input> lots</span>
+				<span id="bottles_per_week_show"></span>
+				</label> 
+				<!--<label>How many of these do you think is recycled <input type="range" id="recycle"></input></label>-->
+				<label>compare to others, you use <span>less <input type="range" id="use_level"></input> more</span></label> 
+
+				<!--<div>Simulated bottles produced so far <span id="bottles"></span></div>-->
+				<div style="background:#84838E;color:white;margin:0;width:100%;padding:0.25em 0;text-shadow:none;">unsustainable</div>
+			</div>
+
+			<div class="game">
+				<div style="background:#ccc5ba;margin:0;width:100%;padding:0.25em 0;text-shadow:none;">Time to Result</div>
+				<label>Time require to achieve <span>short <input type="range" min="0" max="100"></input> long</span></label>
+				<label>number of parallel efforts <span>few <input type="range" min="0" max="100"></input> many</span></label>
+				<div style="background:#84838E;color:white;margin:0;width:100%;padding:0.25em 0;text-shadow:none;">unsustainable</div>
+			</div>
+
 		</div>
 
 		<script>
 			var game = {
 				world_population : 7700000000 ,
 				water_requirement_per_person  : 2000 ,
-				bottles_per_week : 7 ,
+				bottles_per_week : 14 ,
 				start_year : 1950 ,
 				use_level : 50 ,
 				current_year : new Date().getFullYear() - 1 ,
@@ -92,6 +108,10 @@
 
 		<br />
 		<br />
+
+		<style>.hpot {display:none;}
+		form input {background:transparent;color:grey;border:0px;margin:1em;text-align:center;}
+		</style>
 
 		<form method="POST" action="https://formspree.io/sustaincia@gmail.com">
 			<div class="hpot"><label>Open Participation<input name="_gotcha"></label></div>

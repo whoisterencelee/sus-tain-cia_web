@@ -44,7 +44,7 @@
 		<div style="display:flex;flex-direction:row;align-items:flex-start;flex-wrap:wrap;justify-content:space-evenly;">
 
 			<div class="game" win="sustainable, true costs should be reflected">
-				<div style="background:#ccc5ba;margin:0;width:100%;padding:0.25em 0;text-shadow:none;">Take-some Dilemma</div>
+				<div class="gameover">unsustainable</div>
 				<label>how much sumsum do you take <div>none <input type="range" min="0" max="100" value="100"
 					r0_10="you need sumsum to survive"
 					r20_100="aren't you taking too much"
@@ -54,12 +54,11 @@
 					r0_30="so cheap everyone else takes more"
 					r70_100="high cost, most people can't afford and will starve"
 					></input> unaffortable</div></label>
-				<div class="gameover">unsustainable</div>
+				<div style="background:#ccc5ba;margin:0;width:100%;padding:0.25em 0;text-shadow:none;">Take-some Dilemma</div>
 			</div>
 
 			<div class="game" win="sustainable, everyone and you need to be involved" >
-				<div style="background:#ccc5ba;margin:0;width:100%;padding:0.25em 0;text-shadow:none;">Power of Awareness</div>
-
+				<div class="gameover">unsustainable</div>
 				<label>sumsum you use in a week <div>none <input type="range" min="1" max="14" value="14"
 					r1_6="you need to use some to live"
 					r8_14="you are using so much"
@@ -68,11 +67,11 @@
 					r1_17="everyone still uses more than you"
 					r19_20="are you sure others are using enough"
 					></input> more</div></label> 
-				<div class="gameover">unsustainable</div>
+				<div style="background:#ccc5ba;margin:0;width:100%;padding:0.25em 0;text-shadow:none;">Power of Awareness</div>
 			</div>
 
 			<div class="game" win="sustainable, overlaps compensate waiting period" >
-				<div style="background:#ccc5ba;margin:0;width:100%;padding:0.25em 0;text-shadow:none;">Race Against Time</div>
+				<div class="gameover">unsustainable</div>
 				<label>time to result <div>short <input type="range" min="1" max="100" value="100"
 					r1_20="too little effort returns not great"
 					r50_100="taking forever"
@@ -82,49 +81,10 @@
 					r2_10="involve more people" 
 					r50_100="too many duplicate efforts" 
 					></input> everyone</div></label>
-				<div class="gameover">unsustainable</div>
+				<div style="background:#ccc5ba;margin:0;width:100%;padding:0.25em 0;text-shadow:none;">Race Against Time</div>
 			</div>
 
 		</div>
-
-		<script>
-			/*
-			var game = {
-				world_population : 7700000000 ,
-				water_requirement_per_person  : 2000 ,
-				bottles_per_week : 14 ,
-				start_year : 1950 ,
-				use_level : 50 ,
-				current_year : new Date().getFullYear() - 1 ,
-				}
-
-			Object.keys( game ).forEach( k =>{
-				var d = $( k )
-				if( !d ) return
-				if( d.value !== undefined ){
-					d.value = game[ k ]
-					d.addEventListener( "change" , runGame )
-				}
-				else if( d.textContent !== undefined ) d.textContent = game[ k ].toLocaleString() 
-			})
-
-			function showbottle(){ $( "bottles_per_week_show" ).textContent = $( "bottles_per_week" ).value }
-			$( "bottles_per_week").addEventListener( "change" , showbottle )
-			showbottle()
-
-			function runGame(){
-				var use_level = parseInt( $( "use_level" ).value ) || 1
-				var bottles_per_week = parseInt( $( "bottles_per_week" ).value ) || 1
-				var avg_bottles_per_week = bottles_per_week / ( use_level / 100 ) * 0.5
-				var bottles_per_week  = Math.round( game.world_population * avg_bottles_per_week )
-				var bottles_so_far = bottles_per_week * 52 * ( game.current_year - game.start_year )
-				
-				//$( "bottles" ).textContent = bottles_so_far.toLocaleString()
-
-			}
-			runGame()
-			*/
-		</script>
 
 		<br />
 		<br />
